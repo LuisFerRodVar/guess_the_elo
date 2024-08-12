@@ -1,1 +1,10 @@
-<p>ranking works!</p>
+<ul>
+ @for (user of top; track user){
+  <li>
+    <a>{{$index + 1}}</a>
+    <span>{{user.name}}</span>
+    <p>{{user.score}}</p>
+  </li>
+}
+</ul>
+

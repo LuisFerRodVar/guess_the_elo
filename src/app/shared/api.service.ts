@@ -1,17 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-export interface User {
-  _id?: string;
-  name: string;
-  score: number;
-}
-
-export interface Game {
-  _id: number;
-  gameId: string;
-}
+import { Game } from './game';
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
