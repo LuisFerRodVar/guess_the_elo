@@ -1,1 +1,105 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --nord0: #2E3440;
+  /* Polar Night - Darkest */
+  --nord1: #3B4252;
+  /* Polar Night */
+  --nord2: #434C5E;
+  /* Polar Night */
+  --nord3: #4C566A;
+  /* Polar Night - Lightest */
+
+  --nord4: #D8DEE9;
+  /* Snow Storm - Darkest */
+  --nord5: #E5E9F0;
+  /* Snow Storm */
+  --nord6: #ECEFF4;
+  /* Snow Storm - Lightest */
+
+  --nord7: #8FBCBB;
+  /* Frost - Cyan */
+  --nord8: #88C0D0;
+  /* Frost - Bright Cyan */
+  --nord9: #81A1C1;
+  /* Frost - Blue */
+  --nord10: #5E81AC;
+  /* Frost - Dark Blue */
+
+  --nord11: #BF616A;
+  /* Aurora - Red */
+  --nord12: #D08770;
+  /* Aurora - Orange */
+  --nord13: #EBCB8B;
+  /* Aurora - Yellow */
+  --nord14: #A3BE8C;
+  /* Aurora - Green */
+  --nord15: #B48EAD;
+  /* Aurora - Purple */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+p,
+a {
+  display: inline;
+}
+
+img,
+video,
+iframe,
+picture,
+figure {
+  max-width: 100%;
+  display: block;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+form,
+input,
+select,
+textarea,
+button,
+label {
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+body{
+  color: var(--nord4);
+  background-color: var(--nord0);
+}
