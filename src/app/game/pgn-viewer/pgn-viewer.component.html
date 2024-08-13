@@ -1,1 +1,7 @@
-<p>pgn-viewer works!</p>
+<ol>
+  <li *ngFor="let movement of getMovements(); let i = index">
+    <a *ngIf="i % 2 === 0">{{ movement ?? '--' }}</a>
+    <a *ngIf="i % 2 !== 0">{{ movement ?? '--' }}</a>
+  </li>
+</ol>
+

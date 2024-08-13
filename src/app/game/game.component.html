@@ -6,7 +6,7 @@
       <app-control-panel />
     </aside>
     <div>
-      <app-pgn-viewer />
+      <app-pgn-viewer  [gamesList]= "gamesList" ([board])= "board" ([currentGame]) = "currentGame" ([currentMove]) = "currentMove" />
       <app-player-input />
     </div>
   </section>

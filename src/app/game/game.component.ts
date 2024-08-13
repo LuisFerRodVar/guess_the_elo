@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 import { BoardComponent } from './board/board.component';
 import { ControlPanelComponent } from './control-panel/control-panel.component';
@@ -11,6 +10,9 @@ import { ApiLichessService } from '../shared/api.lichess.service';
 import { HttpClientModule } from '@angular/common/http';
 import { forkJoin } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
+import { ChessGame } from '../shared/pgn';
+import { GameMoves } from '../shared/gameMoves';
+
 
 @Component({
   selector: 'app-game',
@@ -29,9 +31,12 @@ import { map, switchMap } from 'rxjs/operators';
 })
 export class GameComponent {
   scores: number[] = [];
-  matchsPgn: string[] = [];
+  matchsPgn: ChessGame[] = [];
   board = new Chess();
   pieces = this.board.board();
+  currentGame: number = 0;
+  currentMove: number = 0;
+  gamesList: GameMoves[] =[];
 
   constructor(
     private apiService: ApiService,
@@ -44,13 +49,9 @@ export class GameComponent {
     const randomNumbers = Array.from({ length: 5 }, () =>
       Math.floor(Math.random() * (4062424 - 2 + 1)) + 2
     );
-
-    // Primero obtenemos todos los IDs de los juegos.
     const gameIds$ = forkJoin(
       randomNumbers.map((num) => this.apiService.getGame(num))
     );
-
-    // Luego, con esos IDs obtenemos los PGNs.
     gameIds$
       .pipe(
         switchMap((games) =>
@@ -60,12 +61,28 @@ export class GameComponent {
       .subscribe({
         next: (pgns) => {
           this.matchsPgn = pgns;
-          console.log(this.matchsPgn);
+          this.matchsPgn.forEach(match => {
+            const moves = this.getGamesFen(match.moves);
+            const movesAlgebraic = match.moves.split(" ");
+            this.gamesList.push({movesFen: moves, movesAlgebraic});
+          });
+          console.log(this.gamesList)
         },
         error: (err) => {
           console.error('Error loading games:', err);
         },
       });
+  }
+  getGamesFen(moves: string):string[] {
+    const list: string[] = moves.split(" ");
+    let result: string[] = [];
+    let board = new Chess();
+    result.push(board.fen());
+    list.forEach(move => {
+      board.move(move);
+      result.push(board.fen());
+    });
+    return result;
   }
 }
 
