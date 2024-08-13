@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { input } from '@angular/core';
 @Component({
   selector: 'app-game-tabs',
   standalone: true,
@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './game-tabs.component.css'
 })
 export class GameTabsComponent {
+  scores = input<number[]>();
 
 }

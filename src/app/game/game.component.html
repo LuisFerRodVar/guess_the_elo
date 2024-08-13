@@ -1,7 +1,10 @@
 <main>
-  <app-game-tabs />
+  <app-game-tabs [scores]= "scores"/>
   <section>
-    <app-board [board]= "board" />
+    <aside>
+      <app-board [board]= "board" />
+      <app-control-panel />
+    </aside>
     <div>
       <app-pgn-viewer />
       <app-player-input />

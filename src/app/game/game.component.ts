@@ -14,6 +14,8 @@ import { Chess } from 'chess.js';
   styleUrl: './game.component.css'
 })
 export class GameComponent {
+  scores:number[] = [];
+  matchsPgn:string[] = [];
   board = new Chess();
   pieces = this.board.board();
   constructor(){
