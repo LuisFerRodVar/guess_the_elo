@@ -1,0 +1,11 @@
+section{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+a{
+  flex-basis: 40%;
+}
+span{
+  flex-basis: 20%;
+}
