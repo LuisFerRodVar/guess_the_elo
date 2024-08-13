@@ -3,10 +3,10 @@
   <section>
     <aside>
       <app-board [board]= "board" />
-      <app-control-panel />
+      <app-control-panel [gamesList]= "gamesList" [(board)]= "board" [(currentGame)] = "currentGame" [(currentMove)] = "currentMove" />
     </aside>
     <div>
-      <app-pgn-viewer  [gamesList]= "gamesList" ([board])= "board" ([currentGame]) = "currentGame" ([currentMove]) = "currentMove" />
+      <app-pgn-viewer [gamesList]= "gamesList" [(board)]= "board" [(currentGame)] = "currentGame" [(currentMove)] = "currentMove" />
       <app-player-input />
     </div>
   </section>

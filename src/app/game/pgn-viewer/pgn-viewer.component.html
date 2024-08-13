@@ -3,6 +3,6 @@
     @if ($index % 2 == 0){
       <span>{{($index / 2) + 1}}</span>
     }
-    <a>{{movement}}</a>
+    <a (click)="goTo($index+1)" >{{movement}}</a>
   }
 </section>

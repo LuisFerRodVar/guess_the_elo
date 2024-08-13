@@ -13,12 +13,16 @@ import { NgFor, NgIf } from '@angular/common';
 })
 export class PgnViewerComponent {
   gamesList = input<GameMoves[]>([]);
-  board = model<Chess>();
-  currentGame = model<number>(0);
-  currentMove = model<number>(0);
+  board = model(new Chess());
+  currentGame = model(0);
+  currentMove = model(0);
   getMovements() {
     const game = this.gamesList()[this.currentGame()];
     return game?.movesAlgebraic ?? [];
+  }
+  goTo(movement: number){
+    this.board.set(new Chess(this.gamesList()[this.currentGame()].movesFen[movement]))
+    this.currentMove.set(movement-1);
   }
 
 }

@@ -66,7 +66,6 @@ export class GameComponent {
             const movesAlgebraic = match.moves.split(" ");
             this.gamesList.push({movesFen: moves, movesAlgebraic});
           });
-          console.log(this.gamesList)
         },
         error: (err) => {
           console.error('Error loading games:', err);

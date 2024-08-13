@@ -1,7 +1,12 @@
 <section>
-  <fa-icon [icon]= "faAnglesLeft" />
-  <fa-icon [icon]= "faChevronLeft" />
-  <fa-icon [icon]= "faPlay" />
-  <fa-icon [icon]= "faChevronRight" />
-  <fa-icon [icon]= "faAnglesRight" />
+  <fa-icon (click)="goFirst()" [icon]= "faAnglesLeft" />
+  <fa-icon (click)="goBack()" [icon]= "faChevronLeft" />
+
+  @if (playInterval){
+    <fa-icon (click)="stopGame()" [icon]= "faStop" />
+  }@else{
+    <fa-icon (click)="playGame()" [icon]= "faPlay" />
+  }
+  <fa-icon (click)="goForward()" [icon]= "faChevronRight" />
+  <fa-icon (click)="goLast()" [icon]= "faAnglesRight" />
 </section>

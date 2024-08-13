@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, model } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faChevronRight, faChevronLeft, faPlay, faStop, faAnglesRight, faAnglesLeft } from '@fortawesome/free-solid-svg-icons';
+import { input } from '@angular/core';
+import { Chess } from 'chess.js';
+import { GameMoves } from '../../shared/gameMoves';
 @Component({
   selector: 'app-control-panel',
   standalone: true,
@@ -9,10 +12,69 @@ import { faChevronRight, faChevronLeft, faPlay, faStop, faAnglesRight, faAnglesL
   styleUrl: './control-panel.component.css'
 })
 export class ControlPanelComponent {
+  board = model(new Chess());
+  currentMove = model(0);
+  currentGame = model(0);
+  gamesList = input<GameMoves[]>([]);
   faChevronLeft = faChevronLeft;
   faChevronRight = faChevronRight;
   faPlay = faPlay;
   faStop = faStop;
   faAnglesLeft = faAnglesLeft;
   faAnglesRight = faAnglesRight;
+
+  playInterval: any = null;
+  goBack() {
+    if (this.currentMove() != 0) {
+      if(this.playInterval){
+        this.stopGame();
+      }
+      this.currentMove.set(this.currentMove() - 1);
+      this.board.set(new Chess(this.gamesList()[this.currentGame()].movesFen[this.currentMove()]));
+    }
+  }
+  goForward() {
+    const max = this.gamesList()[this.currentGame()].movesFen.length;
+    if (this.currentMove() < max - 1) {
+      if(this.playInterval){
+        this.stopGame();
+      }
+      this.currentMove.set(this.currentMove() + 1);
+      this.board.set(new Chess(this.gamesList()[this.currentGame()].movesFen[this.currentMove()]));
+    }
+  }
+  playGame() {
+    if (!this.playInterval) { // Verifica si no hay un intervalo ya corriendo
+      this.playInterval = setInterval(() => {
+        const max = this.gamesList()[this.currentGame()].movesFen.length;
+        if (this.currentMove() < max - 1) {
+          this.goForward(); // Avanza al siguiente movimiento
+        } else {
+          this.stopGame(); // Detiene la reproducción si llega al final
+        }
+      }, 1000); // Ajusta el tiempo en milisegundos entre cada movimiento
+    }
+  }
+  goFirst() {
+    if(this.playInterval){
+        this.stopGame();
+    }
+    this.currentMove.set(0);
+    this.board.set(new Chess(this.gamesList()[this.currentGame()].movesFen[this.currentMove()]))
+  }
+  goLast() {
+    if(this.playInterval){
+        this.stopGame();
+    }
+    this.currentMove.set(this.gamesList()[this.currentGame()].movesFen.length - 1);
+    this.board.set(new Chess(this.gamesList()[this.currentGame()].movesFen[this.currentMove()]))
+
+  }
+
+  stopGame() {
+    if (this.playInterval) {
+      clearInterval(this.playInterval);
+      this.playInterval = null;
+    }
+  }
 }
