@@ -27,7 +27,7 @@ import { GameMoves } from '../shared/gameMoves';
   ],
   providers: [ApiService, ApiLichessService],
   templateUrl: './game.component.html',
-  styleUrls: ['./game.component.css'], // Corregí styleUrl a styleUrls
+  styleUrl: './game.component.css',
 })
 export class GameComponent {
   scores: number[] = [];

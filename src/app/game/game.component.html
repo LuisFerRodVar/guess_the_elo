@@ -7,7 +7,7 @@
     </aside>
     <div>
       <app-pgn-viewer [gamesList]= "gamesList" [(board)]= "board" [(currentGame)] = "currentGame" [(currentMove)] = "currentMove" />
-      <app-player-input />
+      <app-player-input [(board)] = "board" [matchsPgn] = "matchsPgn" [(currentMove)] = "currentMove" [(currentGame)] = "currentGame" [(scores)] = "scores" />
     </div>
   </section>
 </main>

@@ -8,6 +8,6 @@ import { input } from '@angular/core';
   styleUrl: './game-tabs.component.css'
 })
 export class GameTabsComponent {
-  scores = input<number[]>();
+  scores = input<number[]>([]);
 
 }
