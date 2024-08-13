@@ -1,1 +1,14 @@
-<p>board works!</p>
+<main>
+  @for (column of columns; track column){
+    <div>
+      @for(row of rows; track row){
+        <section [id]="column + row">
+          @if(pieces().get(column + row) != undefined){
+            <fa-icon [ngClass] = "{'black': pieces().get(column+row)?.color == 'b'}" [icon]="getIconForPiece(pieces().get(column + row)?.type ?? '')" />
+          }
+        </section>
+      }
+    </div>
+  }
+</main>
+

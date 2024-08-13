@@ -4,11 +4,12 @@ import { faDatabase } from '@fortawesome/free-solid-svg-icons';
 import { faQuestion } from '@fortawesome/free-solid-svg-icons';
 import { faTrophy } from '@fortawesome/free-solid-svg-icons';
 import { RankingComponent } from './ranking/ranking.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FontAwesomeModule, RankingComponent],
+  imports: [FontAwesomeModule, RankingComponent, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
