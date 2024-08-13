@@ -10,13 +10,14 @@ import { User } from './user';
 export class ApiService {
   private baseUrl = 'https://api-guess-the-elo.shuttleapp.rs';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getIp(): Observable<any> {
     return this.http.get(`${this.baseUrl}/ip`);
   }
 
   getGame(id: number): Observable<Game> {
+
     return this.http.get<Game>(`${this.baseUrl}/games/${id}`);
   }
 
