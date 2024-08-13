@@ -1,8 +1,9 @@
 <section>
-  @for (movement of getMovements(); track movement){
+  @for (movement of getMovements(); track $index ){
     @if ($index % 2 == 0){
       <span>{{($index / 2) + 1}}</span>
     }
     <a (click)="goTo($index+1)" >{{movement}}</a>
   }
 </section>
+

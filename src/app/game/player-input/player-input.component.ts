@@ -40,7 +40,7 @@ export class PlayerInputComponent {
         const score = Math.max(0, maxPoints - Math.floor(difference / 100) * 50);
         this.scores.update(scores => [...scores, score]);
         this.board.set(new Chess());
-        this.currentGame.set(gameIndex + 1);
+        this.currentGame.update(value => value + 1)
         this.currentMove.set(0);
       }
     }
