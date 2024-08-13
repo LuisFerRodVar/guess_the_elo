@@ -17,6 +17,7 @@ export class PlayerInputComponent {
   currentMove = model(0);
   matchsPgn = input<ChessGame[]>();
   currentAnswer = "1000";
+  end = model(false);
 
   totalScore = computed(() => {
     return this.scores().reduce((sum, score) => sum + score, 0);
@@ -39,6 +40,10 @@ export class PlayerInputComponent {
 
         const score = Math.max(0, maxPoints - Math.floor(difference / 100) * 50);
         this.scores.update(scores => [...scores, score]);
+        if(this.scores().length == 5){
+          this.end.set(true);
+
+        }
         this.board.set(new Chess());
         this.currentGame.update(value => value + 1)
         this.currentMove.set(0);

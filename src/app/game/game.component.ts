@@ -37,12 +37,21 @@ export class GameComponent {
   currentGame: number = 0;
   currentMove: number = 0;
   gamesList: GameMoves[] =[];
+  end: boolean = false;
 
   constructor(
     private apiService: ApiService,
     private apiLichessService: ApiLichessService
   ) {
     this.loadRandomGames();
+  }
+  getTotalScore(){
+    let result = 0;
+    this.scores.forEach(value =>{
+      result += value
+
+    });
+    return result;
   }
 
   loadRandomGames() {
