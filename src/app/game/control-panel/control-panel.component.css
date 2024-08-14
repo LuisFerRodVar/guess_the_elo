@@ -1,0 +1,7 @@
+fa-icon{
+  font-size: 4rem;
+}
+section{
+  display: flex;
+  justify-content: space-around;
+}

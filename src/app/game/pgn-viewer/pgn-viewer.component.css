@@ -1,12 +1,27 @@
 section{
+  font-size: 1.5rem;
+  text-align: center;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   background-color: var(--nord1);
+
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+}
+.current{
+  background-color: var(--nord3);
 }
 a{
+  cursor: pointer;
   flex-basis: 40%;
+  border: 0.5px solid var(--nord0);
+}
+a:hover{
+  background-color: var(--nord3);
 }
 span{
   flex-basis: 20%;
+  font-weight: bold;
+  border: 0.5px solid var(--nord0);
+  background-color: var(--nord2);
 }

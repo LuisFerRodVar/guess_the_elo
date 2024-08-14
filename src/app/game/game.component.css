@@ -7,6 +7,9 @@ main{
   margin: 0 auto;
   overflow: auto;
   gap: 3rem;
+  background: var(--nord1);
+  padding: 3rem;
+  border-radius: 5rem;
 }
 strong{
   position: absolute;
@@ -28,14 +31,20 @@ div{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  gap: 2rem 0;
+  height: 30vh;
 }
 
 app-pgn-viewer{
   flex-basis: 50%;
-  height: 30vh;
+  height: 100%;
   overflow: auto;
+  border-radius: 0.5rem;
 }
 app-match-info{
   flex-basis: 50%;
-  align-content: center;
+}
+app-player-input{
+  flex-basis: 100%;
+  height: 100%;
 }

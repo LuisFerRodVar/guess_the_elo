@@ -1,15 +1,18 @@
 import { Component, computed, input, model } from '@angular/core';
 import { ChessGame } from '../../shared/pgn';
 import { Chess } from 'chess.js';
+import { faCircleRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-player-input',
   standalone: true,
-  imports: [], // Incluye FormsModule en los imports
+  imports: [FontAwesomeModule], // Incluye FormsModule en los imports
   templateUrl: './player-input.component.html',
   styleUrls: ['./player-input.component.css']
 })
 export class PlayerInputComponent {
+  faCircleRight = faCircleRight;
   board = model(new Chess())
   scores = model<number[]>([]);
   currentGame = model(0);

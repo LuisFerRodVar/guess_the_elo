@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { input, model } from '@angular/core';
 import { GameMoves } from '../../shared/gameMoves';
 import { Chess } from 'chess.js';
-import { NgFor, NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-pgn-viewer',
   standalone: true,
-  imports: [NgFor, NgIf],
+  imports: [NgFor, NgIf, NgClass],
   templateUrl: './pgn-viewer.component.html',
   styleUrl: './pgn-viewer.component.css'
 })
@@ -17,6 +17,7 @@ export class PgnViewerComponent {
   board = model(new Chess());
   currentGame = model(0);
   currentMove = model(0);
+
   getMovements() {
     const game = this.gamesList()[this.currentGame()];
     return game?.movesAlgebraic ?? [];
