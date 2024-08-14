@@ -2,6 +2,7 @@ section{
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  background-color: var(--nord1);
 }
 a{
   flex-basis: 40%;

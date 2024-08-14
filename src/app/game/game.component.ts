@@ -12,6 +12,7 @@ import { forkJoin } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { ChessGame } from '../shared/pgn';
 import { GameMoves } from '../shared/gameMoves';
+import { MatchInfoComponent } from './match-info/match-info.component';
 
 
 @Component({
@@ -23,6 +24,7 @@ import { GameMoves } from '../shared/gameMoves';
     PgnViewerComponent,
     PlayerInputComponent,
     GameTabsComponent,
+    MatchInfoComponent,
     HttpClientModule,
   ],
   providers: [ApiService, ApiLichessService],

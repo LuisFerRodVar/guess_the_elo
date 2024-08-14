@@ -1,0 +1,24 @@
+<section>
+  <span>Partida a ritmo</span>
+
+  <div>
+  @switch(getTime()){
+    @case ("bullet"){
+      <fa-icon [icon] = "faRocket" />
+      <p>Bala</p>
+    }
+    @case ("blitz"){
+      <fa-icon [icon] = "faBolt" />
+      <p>Blitz</p>
+    }
+    @case ("rapid"){
+      <fa-icon [icon] = "faStopwatch" />
+      <p>Rápido</p>
+    }
+    @case ("classical"){
+      <fa-icon [icon] =  "faHourglassHalf" />
+      <p>Clásico</p>
+    }
+  }
+  </div>
+</section>

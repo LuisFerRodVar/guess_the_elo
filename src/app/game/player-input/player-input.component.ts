@@ -1,4 +1,3 @@
-
 import { Component, computed, input, model } from '@angular/core';
 import { ChessGame } from '../../shared/pgn';
 import { Chess } from 'chess.js';
@@ -16,8 +15,13 @@ export class PlayerInputComponent {
   currentGame = model(0);
   currentMove = model(0);
   matchsPgn = input<ChessGame[]>();
-  currentAnswer = "1000";
+  currentAnswer = "";
   end = model(false);
+
+  setCurrentAnswer(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    this.currentAnswer = inputElement.value;
+  }
 
   totalScore = computed(() => {
     return this.scores().reduce((sum, score) => sum + score, 0);
@@ -40,7 +44,7 @@ export class PlayerInputComponent {
 
         const score = Math.max(0, maxPoints - Math.floor(difference / 100) * 50);
         this.scores.update(scores => [...scores, score]);
-        if(this.scores().length == 5){
+        if (this.scores().length == 5) {
           this.end.set(true);
 
         }

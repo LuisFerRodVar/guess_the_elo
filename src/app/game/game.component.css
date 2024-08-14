@@ -1,8 +1,41 @@
 main{
   display: flex;
   flex-direction: column;
+  position: relative;
+  width: 90%;
+  height: 80vh;
+  margin: 0 auto;
+  overflow: auto;
+  gap: 3rem;
+}
+strong{
+  position: absolute;
+  inset: 0;
 }
 section{
   display: flex;
   flex-direction: row;
+  gap: 2rem;
+}
+aside{
+  display: flex;
+  flex-direction: column;
+}
+app-board{
+  flex-basis: 90%;
+}
+div{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+app-pgn-viewer{
+  flex-basis: 50%;
+  height: 30vh;
+  overflow: auto;
+}
+app-match-info{
+  flex-basis: 50%;
+  align-content: center;
 }

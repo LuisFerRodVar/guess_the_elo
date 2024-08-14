@@ -1,5 +1,6 @@
 <section>
-  <p>{{totalScore()}}</p>
+  <p>{{ totalScore() }}</p>
+  <input type="number" (input)="setCurrentAnswer($event)">
   <button (click)="calculateScore()">Siguiente</button>
 </section>
 
