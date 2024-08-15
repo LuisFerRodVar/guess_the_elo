@@ -13,6 +13,8 @@ import { map, switchMap } from 'rxjs/operators';
 import { ChessGame } from '../shared/pgn';
 import { GameMoves } from '../shared/gameMoves';
 import { MatchInfoComponent } from './match-info/match-info.component';
+import { NgClass } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
@@ -26,6 +28,8 @@ import { MatchInfoComponent } from './match-info/match-info.component';
     GameTabsComponent,
     MatchInfoComponent,
     HttpClientModule,
+    RouterLink,
+    NgClass
   ],
   providers: [ApiService, ApiLichessService],
   templateUrl: './game.component.html',

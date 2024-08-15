@@ -1,12 +1,13 @@
-<main>
+<main [ngClass]= "{'end': end}">
   @if (end){
     <strong>
       <span>Puntuación: </span>
       <p>{{getTotalScore()}}</p>
       <input type="text"placeholder="Nombre" >
-      <button>Volver</button>
+      <button routerLink="/" >Volver</button>
     </strong>
-  }
+  }@else{
+
 
   <app-game-tabs [scores]= "scores"/>
   <section>
@@ -16,9 +17,10 @@
     </aside>
     <div>
       <app-pgn-viewer [gamesList]= "gamesList" [(board)]= "board" [(currentGame)] = "currentGame" [(currentMove)] = "currentMove" />
-      <app-match-info [currentGame] ="currentGame" [matchsPgn] = "matchsPgn" />
-      <app-player-input [(end)] = "end" [(board)] = "board" [matchsPgn] = "matchsPgn" [(currentMove)] = "currentMove" [(currentGame)] = "currentGame" [(scores)] = "scores" />
+      <app-match-info [currentMove] = "currentMove" [currentGame] ="currentGame" [matchsPgn] = "matchsPgn" />
+      <app-player-input  [(end)] = "end" [(board)] = "board" [matchsPgn] = "matchsPgn" [(currentMove)] = "currentMove" [(currentGame)] = "currentGame" [(scores)] = "scores" />
     </div>
   </section>
+  }
 </main>
 

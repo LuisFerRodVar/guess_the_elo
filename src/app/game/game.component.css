@@ -11,9 +11,27 @@ main{
   padding: 3rem;
   border-radius: 5rem;
 }
+.end{
+  justify-content: center;
+  align-items: center;
+}
 strong{
-  position: absolute;
-  inset: 0;
+  font-size: 3rem;
+  background-color: var(--nord2);
+  text-align: center;
+  padding: 3rem;
+  border-radius: 2rem;
+}
+p{
+  font-weight: normal;
+}
+input{
+  border: none;
+  background-color: transparent;
+  margin: 2rem;
+}
+button{
+  margin: 0 auto;
 }
 section{
   display: flex;

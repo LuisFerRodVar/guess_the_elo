@@ -3,7 +3,7 @@
     @if ($index % 2 == 0){
       <span>{{($index / 2) + 1}}</span>
     }
-    <a [ngClass]= "{'current': currentMove() == $index }" (click)="goTo($index+1)" >{{movement}}</a>
+    <a [ngClass]= "{'current': currentMove() == $index +1 }" (click)="goTo($index + 1)" >{{movement}}</a>
   }
 </section>
 

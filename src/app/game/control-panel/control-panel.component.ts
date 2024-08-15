@@ -1,4 +1,4 @@
-import { Component, model } from '@angular/core';
+import { Component, model, HostListener } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faChevronRight, faChevronLeft, faPlay, faStop, faAnglesRight, faAnglesLeft } from '@fortawesome/free-solid-svg-icons';
 import { input } from '@angular/core';
@@ -23,6 +23,24 @@ export class ControlPanelComponent {
   faAnglesLeft = faAnglesLeft;
   faAnglesRight = faAnglesRight;
 
+  @HostListener('window:keydown',['$event'])
+  handleKeyLeft(event: KeyboardEvent){
+    if (event.key === ' ') {
+      if(this.playInterval){
+        this.stopGame();
+      }else{
+        this.playGame();
+      }
+    } else if (event.key === 'ArrowLeft' && event.ctrlKey) {
+      this.goFirst();
+    } else if (event.key === 'ArrowRight' && event.ctrlKey) {
+      this.goLast();
+    } else if (event.key === 'ArrowLeft') {
+      this.goBack()
+    } else if (event.key === 'ArrowRight') {
+      this.goForward()
+    }
+  }
   playInterval: any = null;
   goBack() {
     if (this.currentMove() != 0) {
@@ -43,12 +61,19 @@ export class ControlPanelComponent {
       this.board.set(new Chess(this.gamesList()[this.currentGame()].movesFen[this.currentMove()]));
     }
   }
+  goForwardInterval() {
+    const max = this.gamesList()[this.currentGame()].movesFen.length;
+    if (this.currentMove() < max - 1) {
+      this.currentMove.set(this.currentMove() + 1);
+      this.board.set(new Chess(this.gamesList()[this.currentGame()].movesFen[this.currentMove()]));
+    }
+  }
   playGame() {
     if (!this.playInterval) { // Verifica si no hay un intervalo ya corriendo
       this.playInterval = setInterval(() => {
         const max = this.gamesList()[this.currentGame()].movesFen.length;
         if (this.currentMove() < max - 1) {
-          this.goForward(); // Avanza al siguiente movimiento
+          this.goForwardInterval(); // Avanza al siguiente movimiento
         } else {
           this.stopGame(); // Detiene la reproducción si llega al final
         }
@@ -68,6 +93,7 @@ export class ControlPanelComponent {
     }
     this.currentMove.set(this.gamesList()[this.currentGame()].movesFen.length - 1);
     this.board.set(new Chess(this.gamesList()[this.currentGame()].movesFen[this.currentMove()]))
+    this.currentMove.set(this.currentMove() )
 
   }
 

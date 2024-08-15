@@ -24,7 +24,7 @@ export class PgnViewerComponent {
   }
   goTo(movement: number) {
     this.board.set(new Chess(this.gamesList()[this.currentGame()].movesFen[movement]))
-    this.currentMove.set(movement - 1);
+    this.currentMove.set(movement);
   }
 
 
