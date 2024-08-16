@@ -1,10 +1,13 @@
-<ul>
- @for (user of top; track user){
-  <li>
-    <a>{{$index + 1}}</a>
-    <span>{{user.name}}</span>
-    <p>{{user.score}}</p>
-  </li>
-}
-</ul>
+<section>
+  <h2>Ranking</h2>
+  <ul>
+  @for (user of top; track $index){
+    <li>
+      <a>{{$index + 1}}</a>
+      <span>{{user.name}}</span>
+      <p>{{user.score}}</p>
+    </li>
+  }
+  </ul>
+</section>
 

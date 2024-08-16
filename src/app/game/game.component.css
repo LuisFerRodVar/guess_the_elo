@@ -4,7 +4,7 @@ main{
   position: relative;
   width: 90%;
   height: 80vh;
-  margin: 0 auto;
+  margin: 5rem auto;
   overflow: auto;
   gap: 3rem;
   background: var(--nord1);
