@@ -7,7 +7,7 @@
     <strong>
       <span>Puntuación: </span>
       <p>{{getTotalScore()}}</p>
-      <input (input)="setCurrentAnswer($event)" type="text"placeholder="Nombre" >
+      <input (input)="setCurrentAnswer($event)" type="text"placeholder="Digite su nombre acá" >
       <small>En el ranking aparecerán sus iniciales: {{this.initials}}</small>
       <button (click)= "saveData()" >Volver</button>
     </strong>
