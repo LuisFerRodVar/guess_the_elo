@@ -70,9 +70,13 @@ export class ControlPanelComponent {
   }
   playGame() {
     if (!this.playInterval) { // Verifica si no hay un intervalo ya corriendo
+      const current = this.currentGame();
       this.playInterval = setInterval(() => {
         const max = this.gamesList()[this.currentGame()].movesFen.length;
-        if (this.currentMove() < max - 1) {
+        if(current != this.currentGame()){
+          this.stopGame();
+        }
+        else if (this.currentMove() < max - 1) {
           this.goForwardInterval(); // Avanza al siguiente movimiento
         } else {
           this.stopGame(); // Detiene la reproducción si llega al final
