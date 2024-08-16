@@ -22,6 +22,28 @@ export class PgnViewerComponent {
     const game = this.gamesList()[this.currentGame()];
     return game?.movesAlgebraic ?? [];
   }
+  charToEmoji(move: string){
+    let result = "";
+    for(let i = 0; i < move.length; i ++){
+      const current = move.charAt(i);
+      if(current == 'R'){
+        result += "♜";
+      }else if (current == 'Q'){
+        result += "♛";
+      }else if (current == 'K'){
+        result += "♚";
+      }else if (current == 'N'){
+        result += "♞";
+      }else if (current == 'B'){
+        result += "♝";
+      }else{
+        result += current;
+      }
+    }
+    return result;
+
+
+  }
   goTo(movement: number) {
     this.board.set(new Chess(this.gamesList()[this.currentGame()].movesFen[movement]))
     this.currentMove.set(movement);

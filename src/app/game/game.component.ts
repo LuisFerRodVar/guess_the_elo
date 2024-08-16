@@ -15,7 +15,7 @@ import { GameMoves } from '../shared/gameMoves';
 import { MatchInfoComponent } from './match-info/match-info.component';
 import { NgClass } from '@angular/common';
 import { RouterLink } from '@angular/router';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game',
@@ -49,7 +49,8 @@ export class GameComponent {
 
   constructor(
     private apiService: ApiService,
-    private apiLichessService: ApiLichessService
+    private apiLichessService: ApiLichessService,
+    private router: Router
   ) {
     this.loadRandomGames();
   }
@@ -71,7 +72,7 @@ export class GameComponent {
       if (list[i]) {
         result += list[i][0].toUpperCase();
       }
-      i ++;
+      i++;
     }
     return result;
 
@@ -108,6 +109,25 @@ export class GameComponent {
         },
       });
   }
+
+  saveData() {
+    if (this.currentAnswer === "") {
+      alert("Digite un nombre");
+      return;
+    }
+
+    this.apiService.createUser({ name: this.currentAnswer, score: this.getTotalScore() })
+      .subscribe({
+        next: (response) => {
+          console.log("Usuario creado con éxito:", response);
+          this.router.navigate(["/"]);
+        },
+        error: (error) => {
+          console.error("Error al crear usuario:", error);
+        }
+      });
+  }
+
   getGamesFen(moves: string): string[] {
     const list: string[] = moves.split(" ");
     let result: string[] = [];

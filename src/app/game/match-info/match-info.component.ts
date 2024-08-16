@@ -63,7 +63,6 @@ export class MatchInfoComponent {
       return "";
     }
 
-    const white = games[index]?.players?.white;
     const result = games[index]?.winner;
 
     if (result === "draw") {

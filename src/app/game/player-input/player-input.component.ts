@@ -3,11 +3,13 @@ import { ChessGame } from '../../shared/pgn';
 import { Chess } from 'chess.js';
 import { faCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-player-input',
   standalone: true,
-  imports: [FontAwesomeModule], // Incluye FormsModule en los imports
+  imports: [FontAwesomeModule],
   templateUrl: './player-input.component.html',
   styleUrls: ['./player-input.component.css']
 })
@@ -21,12 +23,15 @@ export class PlayerInputComponent {
   currentAnswer = "";
   end = model(false);
 
-  getInitials(name: string):string {
+
+
+
+  getInitials(name: string): string {
     const list = name.split(" ");
     let i: number = 0;
     let result: string = "";
-    while(i < 3){
-      if(list[i]){
+    while (i < 3) {
+      if (list[i]) {
         result += list[i][1].toUpperCase();
       }
     }
@@ -63,6 +68,23 @@ export class PlayerInputComponent {
           this.end.set(true);
 
         }
+        const inputElement = document.querySelector('input[type="number"]') as HTMLInputElement;
+        if (inputElement) {
+          inputElement.value = ''; // Resetea el valor del input en el DOM
+        }
+        Swal.fire({
+          title: "Puntos obtenidos: " + score,
+          text: "Respuesta correcta: " + correctAnswer,
+          confirmButtonText: 'Siguiente',
+          background: "#4c566a",
+          color: "#d8dee9",
+          buttonsStyling: false,
+          customClass: {
+            title: 'title-alert',
+            htmlContainer: 'text-alert'
+          }
+        });
+        this.currentAnswer = "";
         this.board.set(new Chess());
         this.currentGame.update(value => value + 1)
         this.currentMove.set(0);
