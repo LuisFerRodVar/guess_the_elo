@@ -62,14 +62,18 @@ export class PlayerInputComponent {
       const blackElo = black?.rating;
 
       if (whiteElo !== undefined && blackElo !== undefined) {
+        if(this.currentAnswer == ""){
+          return
+        }
         const correctAnswer = Math.floor((whiteElo + blackElo) / 2);
         const userAnswer = parseInt(this.currentAnswer);
         const maxPoints = 1000;
         const difference = Math.abs(correctAnswer - userAnswer);
 
-        const score = (difference * - 1) + maxPoints;
+        let score = (difference * - 1) + maxPoints;
         if(score < 0){
           this.scores.update(scores => [...scores, 0]);
+          score = 0;
         }else{
           this.scores.update(scores => [...scores, score]);
         }
