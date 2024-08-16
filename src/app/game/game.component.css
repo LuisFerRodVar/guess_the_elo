@@ -4,6 +4,7 @@ main {
   position: relative;
   width: 90%;
   height: 80vh;
+  min-height: 700px;
   margin: 5rem auto;
   overflow: auto;
   gap: 3rem;
