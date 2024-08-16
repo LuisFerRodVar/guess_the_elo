@@ -56,3 +56,31 @@ button{
 fa-icon{
   cursor: pointer;
 }
+@media (max-width: 1000px){
+  div{
+    align-items: center;
+    flex-direction: row;
+  }
+  button{
+    margin: 0;
+  }
+}
+@media(max-width:830px){
+  div{
+    margin: 0 auto;
+    width: 70%;
+    gap: 3rem;
+    justify-content: center;
+  }
+  input{
+    width: 50%;
+  }
+  section{
+    margin: 0 auto;
+  }
+}
+@media (max-width: 430px){
+  div{
+    width: 100%;
+  }
+}

@@ -2,18 +2,65 @@ h2{
   text-align: center;
   font-size: 2rem;
 }
-ul{
-  display: flex;
-  font-size: 1.6rem;
-  flex-direction: column;
-}
-li{
-  display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-}
+
 section{
   border: 2px solid var(--nord4);
   padding: 1rem 2rem;
   border-radius: 1rem;
+}
+table{
+  font-size: 1.4rem;
+  margin: 0 auto;
+}
+/* Estilos para el título h2 */
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Estilos para la sección */
+section {
+  border: 2px solid var(--nord4);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  background-color: var(--nord1); /* Añadido para mejorar la visibilidad */
+}
+
+/* Estilos para la tabla */
+table {
+  width: 100%; /* Hace que la tabla ocupe el ancho completo del contenedor */
+  border-collapse: collapse; /* Elimina los espacios entre las celdas */
+  margin-top: 1rem; /* Espacio entre el título y la tabla */
+}
+
+/* Estilos para las celdas de la tabla */
+td {
+  padding: 0.5rem; /* Espacio dentro de cada celda */
+  text-align: center; /* Centra el texto dentro de las celdas */
+  border-bottom: 1px solid var(--nord4); /* Línea divisoria entre filas */
+}
+
+/* Estilos para el encabezado de la tabla */
+thead th {
+  background-color: var(--nord3); /* Color de fondo para el encabezado */
+  color: var(--nord0); /* Color del texto en el encabezado */
+  padding: 0.75rem; /* Espacio dentro del encabezado */
+  border-bottom: 2px solid var(--nord4); /* Línea divisoria entre el encabezado y el resto de la tabla */
+  text-align: center; /* Centra el texto en el encabezado */
+}
+
+/* Estilos para las filas */
+tbody tr {
+  transition: background-color 0.3s; /* Transición para el cambio de color al pasar el mouse */
+}
+
+tbody tr:hover {
+  background-color: var(--nord2); /* Color de fondo al pasar el mouse */
+}
+
+/* Opcional: estilos para el contenedor de la tabla */
+table-container {
+  max-width: 800px; /* Ancho máximo de la tabla */
+  margin: 0 auto; /* Centra la tabla horizontalmente */
 }

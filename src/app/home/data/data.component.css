@@ -28,3 +28,8 @@ li{
   font-size: 1.6rem;
   text-align: center;
 }
+@media (max-width: 600px){
+ section{
+    width: 80%;
+  }
+}

@@ -13,17 +13,31 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class RankingComponent {
 
-  top: User[]  = []
-  constructor (private apiService: ApiService) {
+  top: User[] = []
+  constructor(private apiService: ApiService) {
     this.apiService.getMaxScores().subscribe({
       next: (users) => {
         this.top = users.sort((a, b) => b.score - a.score);
-         console.log("Recibidos los datos");
+        console.log("Recibidos los datos");
       },
       error: (error) => {
         console.error('Error al obtener los max_scores:', error);
       },
     });
+  }
+  getInitials(name: string): string {
+    const list = name.split(" ");
+    let i: number = 0;
+    let result: string = "";
+    while (i < 3) {
+
+      if (list[i]) {
+        result += list[i][0].toUpperCase();
+      }
+      i++;
+    }
+    return result;
+
   }
 
 }

@@ -1,13 +1,26 @@
 <section>
   <h2>Ranking</h2>
-  <ul>
+  <table>
+    <thead></thead>
+    <tbody>
+
   @for (user of top; track $index){
-    <li>
-      <a>{{$index + 1}}</a>
-      <span>{{user.name}}</span>
-      <p>{{user.score}}</p>
-    </li>
+    <tr>
+      <td>
+        <a>{{$index + 1}}</a>
+      </td>
+      <td>
+
+        <span>{{this.getInitials(user.name)}}</span>
+      </td>
+      <td>
+        <p>{{user.score}}</p>
+      </td>
+
+   </tr>
   }
-  </ul>
+
+    </tbody>
+  </table>
 </section>
 

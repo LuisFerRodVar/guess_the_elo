@@ -16,3 +16,9 @@ div{
   justify-content: center;
   border: 1px solid var(--nord4);
 }
+@media (max-width: 1000px){
+  section{
+    height: auto;
+  }
+
+}
