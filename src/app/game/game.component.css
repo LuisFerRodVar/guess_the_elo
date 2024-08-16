@@ -19,19 +19,33 @@ strong{
   font-size: 3rem;
   background-color: var(--nord2);
   text-align: center;
-  padding: 3rem;
+  padding: 3.5rem;
   border-radius: 2rem;
+}
+small{
+  font-size: 1.3rem;
+  font-weight: normal;
 }
 p{
   font-weight: normal;
 }
 input{
+  font-size: 1.8rem;
+  text-align: center;
   border: none;
   background-color: transparent;
-  margin: 2rem;
 }
 button{
+  font-size: 1.6rem;
+  background-color: var(--nord0);
+  padding: 1rem;
   margin: 0 auto;
+  border-radius: 1rem;
+}
+button:hover{
+  background-color: var(--nord4);
+  color: var(--nord0);
+  cursor: pointer;
 }
 section{
   display: flex;

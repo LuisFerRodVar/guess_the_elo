@@ -1,9 +1,57 @@
 
 <ul>
-  <li>{{ (scores() || [])[0] ?? '--' }}</li>
-  <li>{{ (scores() || [])[1] ?? '--' }}</li>
-  <li>{{ (scores() || [])[2] ?? '--' }}</li>
-  <li>{{ (scores() || [])[3] ?? '--' }}</li>
-  <li>{{ (scores() || [])[4] ?? '--' }}</li>
+  @if (scores()[0] != undefined){
+    @if (scores()[0] > 900){
+      <li class="green">{{scores()[0]}}</li>
+    }@else if(scores()[0] > 600){
+      <li class="yellow">{{scores()[0]}}</li>
+    }@else{
+      <li class="red">{{scores()[0]}}</li>
+    }
+  }@else{
+    <li>--</li>
+  }
+  @if (scores()[1] != undefined){
+    @if (scores()[1] > 900){
+      <li class="green">{{scores()[1]}}</li>
+    }@else if(scores()[1] > 600){
+      <li class="yellow">{{scores()[1]}}</li>
+    }@else{
+      <li class="red">{{scores()[1]}}</li>
+    }
+  }@else{
+    <li>--</li>
+  }
+  @if (scores()[2] != undefined){
+    @if (scores()[2] > 900){
+      <li class="green">{{scores()[2]}}</li>
+    }@else if(scores()[2] > 600){
+      <li class="yellow">{{scores()[2]}}</li>
+    }@else{
+      <li class="red">{{scores()[2]}}</li>
+    }
+  }@else{
+    <li>--</li>
+  }@if (scores()[3] != undefined){
+    @if (scores()[3] > 900){
+      <li class="green">{{scores()[3]}}</li>
+    }@else if(scores()[3] > 600){
+      <li class="yellow">{{scores()[3]}}</li>
+    }@else{
+      <li class="red">{{scores()[3]}}</li>
+    }
+  }@else{
+    <li>--</li>
+  }@if (scores()[4] != undefined){
+    @if (scores()[4] > 900){
+      <li class="green">{{scores()[4]}}</li>
+    }@else if(scores()[4] > 600){
+      <li class="yellow">{{scores()[4]}}</li>
+    }@else{
+      <li class="red">{{scores()[4]}}</li>
+    }
+  }@else{
+    <li>--</li>
+  }
 </ul>
 

@@ -3,7 +3,8 @@
     <strong>
       <span>Puntuación: </span>
       <p>{{getTotalScore()}}</p>
-      <input type="text"placeholder="Nombre" >
+      <input (input)="setCurrentAnswer($event)" type="text"placeholder="Nombre" >
+      <small>En el ranking aparecerán sus iniciales: {{this.initials}}</small>
       <button routerLink="/" >Volver</button>
     </strong>
   }@else{

@@ -4,4 +4,19 @@ ul{
   width: 100%;
   justify-content: space-around;
 }
+li{
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  background-color: var(--nord3);
+  color: var(--nord0);
+}
+.green{
+  background-color: var(--nord7);
+}
+.yellow{
+  background-color: var(--nord8);
+}
+.red{
+  background-color: var(--nord9);
+}
 

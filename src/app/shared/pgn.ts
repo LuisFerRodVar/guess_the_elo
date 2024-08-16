@@ -7,6 +7,7 @@ export interface ChessGame {
   createdAt: number;
   lastMoveAt: number;
   status: string;
+  winner: string;
   players: {
     white: Player;
     black: Player;

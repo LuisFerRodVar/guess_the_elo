@@ -64,22 +64,14 @@ export class MatchInfoComponent {
     }
 
     const white = games[index]?.players?.white;
-    const result = games[index]?.status;
+    const result = games[index]?.winner;
 
     if (result === "draw") {
       return "1/2 - 1/2";
-    } else {
-      if (white?.ratingDiff) {
-        const whiteRatingDiff = white?.ratingDiff;
-        if (whiteRatingDiff > 0) {
-          return "1 - 0";
-        } else {
-          return "0 - 1";
-        }
-      }else {
-        return "Error"
-      }
-
+    }else if (result === "white"){
+      return "1 - 0";
+    }else{
+      return "0 - 1";
     }
   }
 }

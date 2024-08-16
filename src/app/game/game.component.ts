@@ -42,8 +42,10 @@ export class GameComponent {
   pieces = this.board.board();
   currentGame: number = 0;
   currentMove: number = 0;
-  gamesList: GameMoves[] =[];
+  gamesList: GameMoves[] = [];
   end: boolean = false;
+  currentAnswer = ""
+  initials = ""
 
   constructor(
     private apiService: ApiService,
@@ -51,15 +53,34 @@ export class GameComponent {
   ) {
     this.loadRandomGames();
   }
-  getTotalScore(){
+  getTotalScore() {
     let result = 0;
-    this.scores.forEach(value =>{
+    this.scores.forEach(value => {
       result += value
 
     });
     return result;
   }
 
+  getInitials(name: string): string {
+    const list = name.split(" ");
+    let i: number = 0;
+    let result: string = "";
+    while (i < 3) {
+
+      if (list[i]) {
+        result += list[i][0].toUpperCase();
+      }
+      i ++;
+    }
+    return result;
+
+  }
+  setCurrentAnswer(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    this.currentAnswer = inputElement.value;
+    this.initials = this.getInitials(this.currentAnswer);
+  }
   loadRandomGames() {
     const randomNumbers = Array.from({ length: 5 }, () =>
       Math.floor(Math.random() * (4062424 - 2 + 1)) + 2
@@ -79,7 +100,7 @@ export class GameComponent {
           this.matchsPgn.forEach(match => {
             const moves = this.getGamesFen(match.moves);
             const movesAlgebraic = match.moves.split(" ");
-            this.gamesList.push({movesFen: moves, movesAlgebraic});
+            this.gamesList.push({ movesFen: moves, movesAlgebraic });
           });
         },
         error: (err) => {
@@ -87,7 +108,7 @@ export class GameComponent {
         },
       });
   }
-  getGamesFen(moves: string):string[] {
+  getGamesFen(moves: string): string[] {
     const list: string[] = moves.split(" ");
     let result: string[] = [];
     let board = new Chess();

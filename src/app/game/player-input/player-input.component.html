@@ -2,6 +2,7 @@
   <div>
     <p>{{ totalScore() }}</p>
     <input type="number" placeholder="ELO aproximado" (input)="setCurrentAnswer($event)">
+
     <fa-icon [icon]= "faCircleRight" (click)="calculateScore()" />
   </div>
   </section>

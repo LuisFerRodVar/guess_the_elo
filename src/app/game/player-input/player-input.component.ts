@@ -21,6 +21,18 @@ export class PlayerInputComponent {
   currentAnswer = "";
   end = model(false);
 
+  getInitials(name: string):string {
+    const list = name.split(" ");
+    let i: number = 0;
+    let result: string = "";
+    while(i < 3){
+      if(list[i]){
+        result += list[i][1].toUpperCase();
+      }
+    }
+    return result;
+
+  }
   setCurrentAnswer(event: Event) {
     const inputElement = event.target as HTMLInputElement;
     this.currentAnswer = inputElement.value;
