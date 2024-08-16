@@ -38,7 +38,8 @@ input{
 }
 
 input[type=number] {
-    -moz-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
 }
 fa-icon{
   font-size: 3rem;

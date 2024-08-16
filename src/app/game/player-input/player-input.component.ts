@@ -40,7 +40,12 @@ export class PlayerInputComponent {
   }
   setCurrentAnswer(event: Event) {
     const inputElement = event.target as HTMLInputElement;
-    this.currentAnswer = inputElement.value;
+    if(!parseInt(inputElement.value)){
+      inputElement.value = this.currentAnswer;
+    }else{
+      this.currentAnswer = inputElement.value;
+    }
+
   }
 
   totalScore = computed(() => {
@@ -62,8 +67,12 @@ export class PlayerInputComponent {
         const maxPoints = 1000;
         const difference = Math.abs(correctAnswer - userAnswer);
 
-        const score = Math.max(0, maxPoints - Math.floor(difference / 100) * 50);
-        this.scores.update(scores => [...scores, score]);
+        const score = (difference * - 1) + maxPoints;
+        if(score < 0){
+          this.scores.update(scores => [...scores, 0]);
+        }else{
+          this.scores.update(scores => [...scores, score]);
+        }
         if (this.scores().length == 5) {
           this.end.set(true);
 
