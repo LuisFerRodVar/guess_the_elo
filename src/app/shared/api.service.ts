@@ -22,7 +22,12 @@ export class ApiService {
   }
 
   getMaxScores(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.baseUrl}/max_scores`);
+    const headers = new HttpHeaders({
+      'Cache-Control': 'no-store',
+      'Pragma': 'no-cache',
+      'Expires': '0'
+    });
+    return this.http.get<User[]>(`${this.baseUrl}/max_scores`, {headers});
   }
 
   createUser(user: User): Observable<any> {
