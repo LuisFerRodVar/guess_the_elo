@@ -81,7 +81,7 @@ export class ControlPanelComponent {
         } else {
           this.stopGame(); // Detiene la reproducción si llega al final
         }
-      }, 1000); // Ajusta el tiempo en milisegundos entre cada movimiento
+      }, 1500); // Ajusta el tiempo en milisegundos entre cada movimiento
     }
   }
   goFirst() {

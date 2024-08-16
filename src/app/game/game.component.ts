@@ -46,6 +46,7 @@ export class GameComponent {
   end: boolean = false;
   currentAnswer = ""
   initials = ""
+  isLoading = true;
 
   constructor(
     private apiService: ApiService,
@@ -103,6 +104,7 @@ export class GameComponent {
             const movesAlgebraic = match.moves.split(" ");
             this.gamesList.push({ movesFen: moves, movesAlgebraic });
           });
+          this.isLoading = false;
         },
         error: (err) => {
           console.error('Error loading games:', err);

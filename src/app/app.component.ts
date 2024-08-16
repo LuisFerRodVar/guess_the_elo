@@ -11,5 +11,5 @@ import { FooterComponent } from './core/footer/footer.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'guess_the_elo';
+  title = 'Adivina el ELO';
 }

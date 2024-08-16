@@ -1,4 +1,8 @@
 <main [ngClass]= "{'end': end}">
+  @if (isLoading){
+    <span class="loader"></span>
+  }@else {
+
   @if (end){
     <strong>
       <span>Puntuación: </span>
@@ -22,6 +26,7 @@
       <app-player-input  [(end)] = "end" [(board)] = "board" [matchsPgn] = "matchsPgn" [(currentMove)] = "currentMove" [(currentGame)] = "currentGame" [(scores)] = "scores" />
     </div>
   </section>
+  }
   }
 </main>
 
