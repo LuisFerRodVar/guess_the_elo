@@ -53,7 +53,17 @@ export class GameComponent {
     private apiLichessService: ApiLichessService,
     private router: Router
   ) {
-    this.loadRandomGames();
+    while (true){
+      try {
+        this.loadRandomGames();
+        break;
+
+      } catch (error) {
+        continue;
+
+      }
+    }
+
   }
   getTotalScore() {
     let result = 0;

@@ -18,10 +18,8 @@ export class RankingComponent {
     this.apiService.getMaxScores().subscribe({
       next: (users) => {
         this.top = users.sort((a, b) => b.score - a.score);
-        console.log("Recibidos los datos");
       },
       error: (error) => {
-        console.error('Error al obtener los max_scores:', error);
       },
     });
   }
