@@ -8,7 +8,7 @@ import { User } from './user';
   providedIn: 'root'
 })
 export class ApiService {
-  private baseUrl = 'https://api-guess-the-elo-9kiw.shuttle.app/';
+  private baseUrl = 'https://api-guess-the-elo-9kiw.shuttle.app';
 
   constructor(private http: HttpClient) { }
 
