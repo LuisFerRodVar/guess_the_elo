@@ -3,9 +3,9 @@ main {
   flex-direction: column;
   position: relative;
   width: 90%;
-  height: 80vh;
+  height: 85vh;
   min-height: 700px;
-  margin: 5rem auto;
+  margin: 3rem auto;
   overflow: auto;
   gap: 3rem;
   background: var(--nord1);
